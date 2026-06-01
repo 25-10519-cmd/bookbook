@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>생태계 파괴</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Single Day", cursive;
+}
+
+body{
+    background:
+    radial-gradient(circle at center,
+    #3b0000 0%,
+    #120000 40%,
+    black 100%);
+
+    color:white;
+
+    overflow-x:hidden;
+
+    animation: danger 3s infinite alternate;
+}
+
+@keyframes danger{
+
+    from{
+        filter: brightness(1);
+    }
+
+    to{
+        filter: brightness(0.85);
+    }
+}
+
+/* 전체 카드 */
+.container{
+
+    width:90%;
+    max-width:850px;
+
+    margin:60px auto;
+
+    padding:40px;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(8px);
+
+    border-radius:25px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.5);
+
+    animation:fade 1s ease;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+
+    font-size:55px;
+
+    margin-bottom:25px;
+
+    color:#ff7b7b;
+
+    text-shadow:0 0 10px rgba(255,0,0,0.4);
+}
+
+/* 이미지 */
+.main-img{
+
+    width:300px;
+
+    border-radius:20px;
+
+    transition:0.4s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+
+.main-img:hover{
+
+    transform:scale(1.05);
+
+    filter:brightness(1.1);
+}
+
+/* 설명 */
+.text-box{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,0.05);
+
+    border-radius:20px;
+
+    line-height:1.8;
+
+    font-size:23px;
+}
+
+/* 버튼 */
+.button-box{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+button{
+
+    padding:13px 28px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(45deg,#ff4b4b,#ff7b7b);
+
+    transition:0.3s;
+
+    box-shadow:0 5px 15px rgba(255,0,0,0.3);
+}
+
+button:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+
+    box-shadow:0 10px 20px rgba(255,0,0,0.5);
+}
+
+/* 먹이사슬 사진 */
+.food{
+
+    width:330px;
+
+    margin-top:40px;
+
+    border-radius:20px;
+
+    transition:0.4s;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.food:hover{
+
+    transform:scale(1.06);
+}
+
+#exp,
+#exp2{
+
+    margin-top:25px;
+
+    font-size:22px;
+
+    line-height:1.7;
+
+    color:#ddd;
+}
+
+.warning{
+
+    color:#ff4d4d;
+
+    font-size:65px;
+
+    text-shadow:
+    0 0 10px red,
+    0 0 20px red,
+    0 0 40px darkred;
+
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker{
+
+    from{
+        opacity:1;
+    }
+
+    to{
+        opacity:0.7;
+    }
+}
+
+.food-section{
+
+    margin-top:50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+.food-btn{
+
+    margin-top:25px;
+
+    width:220px;
+}
+
+/* 설명 */
+#exp3{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    width:80%;
+
+    line-height:1.8;
+
+    font-size:22px;
+
+    background:rgba(255,255,255,0.05);
+
+    border-radius:20px;
+
+    color:#ddd;
+
+    animation: fade 0.5s ease;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="warning">
+       ☠ 침묵의 봄 ☠
+    </h1>
+
+    <img class="main-img"
+    src="https://i.namu.wiki/i/HyF5L1dNzSmDW5Cmdk8KG_9bwo7ApOwVQrD3gXYmzdW6NLwxh7OI6HccHbQuPcOO0JEczZDF0z0722MPjOLs2Q.webp">
+
+    <div class="text-box">
+
+        살충제는 단순히 벌레만 제거하는 것이 아니라,
+        생태계 전체에 영향을 줄 수 있습니다.
+
+        특히 DDT는 먹이사슬을 따라 축적되는
+        생물 농축 현상을 일으켰습니다.
+
+    </div>
+
+    <div class="button-box">
+
+        <button onclick="expbutton()">
+            살충제의 위험성
+        </button>
+
+        <button onclick="exp2button()">
+            소독차의 진실
+        </button>
+
+        
+
+    </div>
+
+    <div id="exp"></div>
+
+    <div id="exp2"></div>
+
+    
+
+    <img class="food"
+    src="http://www.seehint.com/catalog/2010/2010_11/ddt%20biomagnification.jpg">
+<br>
+    <button class="food-btn" onclick="exp3button()">
+        먹이사슬의 폐해
+    </button>
+
+    <div id="exp3"></div>
+
+</div>
+
+<script>
+
+let answer = "";
+
+while(answer !== "O" && answer !== "X"){
+
+    answer = prompt(
+        "!위기!\n살충제의 본 목적은 벌레뿐만 아니라 인간을 위한 살상제로도 사용되었다?\n(O/X)"
+    );
+
+    answer = answer.toUpperCase();
+
+    if(answer !== "O" && answer !== "X"){
+
+        alert("O 또는 X로 입력해주세요!");
+
+    }
+}
+
+if(answer === "O"){
+
+    alert("맞습니다! 초기 살충제는 전쟁과도 관련되어 사용되었습니다.");
+
+}
+else{
+
+    alert("아쉽네요! 살충제의 역사에는 전쟁과 관련된 내용도 있습니다.");
+
+}
+
+/* 버튼 설명 */
+
+function expbutton(){
+
+    document.getElementById("exp").innerHTML =
+
+    "과거에는 화학물질의 위험성이 잘 알려지지 않았기 때문에 아이와 어른 모두에게 살충제를 직접 뿌리기도 했습니다.";
+
+}
+
+function exp2button(){
+
+    document.getElementById("exp2").innerHTML =
+
+    "예전 소독차에서 나오는 연기에는 인체에 해로운 화학물질이 포함된 경우도 있었습니다.";
+
+}
+
+function exp3button(){
+
+    document.getElementById("exp3").innerHTML =
+
+    "물고기가 플랑크톡을 먹고, 그 물고기를 메기가 먹고 그걸 또 논병아리 또는 물수리가 먹고 결국 먹이사슬 최고층에 위치한 인간에게까지 살충제가 축적되고 축적되어서 전달된다.";
+
+}
+
+</script>
+
+</body>
+</html>
