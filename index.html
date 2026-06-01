@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>살충제와 생태계</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Single Day", cursive;
+}
+
+body{
+    background: linear-gradient(to bottom, #87ceeb, #dff6ff);
+    min-height:100vh;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/* 새 */
+.bird{
+    position:absolute;
+    top:40px;
+    left:-100px;
+    font-size:40px;
+
+    animation: fly 10s linear infinite;
+}
+
+@keyframes fly{
+
+    0%{
+        left:-100px;
+        transform: translateY(0px);
+    }
+
+    25%{
+        transform: translateY(-20px);
+    }
+
+    50%{
+        transform: translateY(15px);
+    }
+
+    75%{
+        transform: translateY(-10px);
+    }
+
+    100%{
+        left:110%;
+        transform: translateY(0px);
+    }
+}
+
+/* 메인 카드 */
+.container{
+    width:90%;
+    max-width:800px;
+
+    margin:70px auto;
+
+    background: rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:55px;
+    margin-bottom:10px;
+    color:#1f2a44;
+
+    text-shadow:2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.sub{
+    font-size:22px;
+    margin-bottom:30px;
+    color:#333;
+}
+
+/* 이미지 */
+.main-img{
+    width:240px;
+    border-radius:20px;
+
+    transition:0.4s;
+
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+
+.main-img:hover{
+    transform:scale(1.05) rotate(2deg);
+}
+
+/* 버튼 */
+.button-box{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+button{
+
+    padding:12px 24px;
+
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#6a65cc,#b987ff);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+
+    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+}
+
+/* 게시판 */
+.board{
+
+    margin-top:40px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+.board h3{
+    margin-bottom:20px;
+    font-size:35px;
+}
+
+ul{
+    list-style:none;
+}
+
+li{
+
+    padding:12px;
+
+    margin:10px 0;
+
+    background:#f3f3f3;
+
+    border-radius:12px;
+
+    transition:0.3s;
+}
+
+li:hover{
+
+    transform:translateX(10px);
+
+    background:#dfe9ff;
+}
+
+/* 입력창 */
+.input-box{
+    margin-top:20px;
+}
+
+input{
+
+    width:220px;
+    height:45px;
+
+    border:none;
+
+    border-radius:15px;
+
+    padding-left:15px;
+
+    font-size:18px;
+
+    outline:none;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.addBtn{
+    margin-left:10px;
+}
+
+/* 아래 이미지 */
+.book{
+    margin-top:40px;
+
+    width:220px;
+
+    border-radius:20px;
+
+    transition:0.4s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book:hover{
+    transform:scale(1.08);
+}
+
+/* 설명 박스 */
+.info{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    background:rgba(255,255,255,0.4);
+
+    border-radius:20px;
+
+    line-height:1.8;
+
+    font-size:22px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bird">🕊</div>
+
+<div class="container">
+
+    <h1>살충제란?</h1>
+
+    <p class="sub">
+        인간의 편리함 뒤에 숨겨진 환경오염의 위험성
+    </p>
+
+    <img class="main-img"
+    src="https://cdn.stock.dropshot.io/sources/b53b0a5e-f796-4cdd-9b75-e34a08667035/web/poster.png">
+
+    <!-- 버튼 -->
+    <div class="button-box">
+
+        <button id="btn">살충제 설명</button>
+
+        <button id="btn1">종류 보기</button>
+
+        <button id="mybtn">환경 문제</button>
+
+    </div>
+
+    <!-- 설명 -->
+    <div class="info">
+        살충제는 해충을 제거하기 위해 만들어진 화학 물질입니다.
+        하지만 무분별한 사용은 생태계 파괴와 환경오염 문제를 일으킬 수 있습니다.
+    </div>
+
+    <!-- 게시판 -->
+    <div class="board">
+
+        <h3>대표적인 살충제</h3>
+
+        <ul id="list">
+
+            <li>DDT</li>
+
+            <li>DDD</li>
+
+            <li>알드린</li>
+
+        </ul>
+
+        <div class="input-box">
+
+            <input type="text" id="text" placeholder="살충제 이름 입력">
+
+            <button class="addBtn" id="add">추가</button>
+
+        </div>
+
+    </div>
+
+    <img class="book"
+    src="https://image.aladin.co.kr/product/34/25/cover500/8995218797_2.jpg">
+
+    <div class="button-box">
+
+        <button onclick="openWindow()">
+            생태계 파괴 보기
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+let btn = document.getElementById("btn");
+let btn1 = document.getElementById("btn1");
+let mybtn = document.getElementById("mybtn");
+let book = document.querySelector(".book");
+
+btn.addEventListener("click", function() {
+    alert("살충제는 해충을 제거하기 위한 화학 물질입니다.");
+});
+
+btn1.addEventListener("click", function() {
+    alert("대표적인 살충제 종류: DDT, DDD, 알드린");
+});
+
+mybtn.addEventListener("click", function() {
+    alert("DDT는 생물 농축 문제로 현재 대부분 사용이 금지되었습니다.");
+});
+
+book.addEventListener("click", function() {
+    alert("레이첼 카슨이 지은 '침묵의 봄' 많은 사람들에게 환경에 대한 경각심과 관심을 불러일으킨 혁명적인 책입니다!");
+});
+
+/* 목록 추가 */
+let addBtn = document.getElementById("add");
+
+let text = document.getElementById("text");
+
+let list = document.getElementById("list");
+
+addBtn.addEventListener("click", function(){
+
+    if(text.value !== ""){
+
+        let li = document.createElement("li");
+
+        li.textContent = text.value;
+
+        list.appendChild(li);
+
+        text.value = "";
+    }
+});
+
+/* 새 창 */
+function openWindow(){
+
+    window.open(
+        "sub.html",
+        "_blank",
+        "width=900,height=700"
+    );
+}
+
+function openWindow() {
+    window.open(
+        "sub2.html",
+        "_blank",
+        "width=800,height=600"
+    );
+}
+</script>
+
+</body>
+</html>
